@@ -16,6 +16,7 @@
 
 import os
 os.environ['PYOPENGL_PLATFORM'] = 'egl'
+os.environ['TORCH_HOME'] = 'D:/Kinjalshah/VIBE/models'
 
 import cv2
 import time
@@ -49,6 +50,9 @@ MIN_NUM_FRAMES = 25
 
 def main(args):
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    if torch.cuda.is_available():
+        print("USING CUDA")
+        print("--------------------------------")
 
     video_file = args.vid_file
 

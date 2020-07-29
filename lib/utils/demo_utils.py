@@ -181,8 +181,11 @@ def trim_videos(filename, start_time, end_time, output_filename):
 
 
 def video_to_images(vid_file, img_folder=None, return_info=False):
+    
     if img_folder is None:
-        img_folder = osp.join('/tmp', osp.basename(vid_file).replace('.', '_'))
+        print("osp basename",osp.basename(vid_file))
+        img_folder = osp.join('\\tmp', osp.basename(vid_file).replace('.', '_'))
+        print('IMAGE FOLDER: ',img_folder)
 
     os.makedirs(img_folder, exist_ok=True)
 
@@ -190,7 +193,7 @@ def video_to_images(vid_file, img_folder=None, return_info=False):
                '-i', vid_file,
                '-f', 'image2',
                '-v', 'error',
-               f'{img_folder}/%06d.png']
+               f'{img_folder}\\%06d.png']
     print(f'Running \"{" ".join(command)}\"')
     subprocess.call(command)
 

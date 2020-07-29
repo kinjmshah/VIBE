@@ -15,8 +15,8 @@
 # Contact: ps-license@tuebingen.mpg.de
 
 import os
-os.environ['PYOPENGL_PLATFORM'] = 'egl'
-os.environ['TORCH_HOME'] = 'D:/Kinjalshah/VIBE/models'
+os.environ['PYOPENGL_PLATFORM'] = 'EGL'
+#os.environ['TORCH_HOME'] = 'D:\\Kinjalshah\\VIBE\\models'
 
 import cv2
 import time
@@ -55,6 +55,7 @@ def main(args):
         print("--------------------------------")
 
     video_file = args.vid_file
+    print("Video filename: ", video_file)
 
     # ========= [Optional] download the youtube video ========= #
     if video_file.startswith('https://www.youtube.com'):
@@ -68,6 +69,7 @@ def main(args):
 
     if not os.path.isfile(video_file):
         exit(f'Input video \"{video_file}\" does not exist!')
+        print('------------------',video_file)
 
     output_path = os.path.join(args.output_folder, os.path.basename(video_file).replace('.mp4', ''))
     os.makedirs(output_path, exist_ok=True)
